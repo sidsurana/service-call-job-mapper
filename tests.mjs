@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {analyze,sample} from './engine.mjs';
+import {delivery} from './engine.mjs';test('validates integration payload',()=>assert.equal(analyze(sample).payload.event_id,'call-101'));test('deduplicates accepted events',()=>{assert.equal(delivery(['call-101'],'call-101'),'DUPLICATE');assert.equal(delivery([],'call-101'),'SEND')});test('rejects invalid appointment',()=>{let p=JSON.parse(sample);p.scheduled_at='bad';assert.throws(()=>analyze(JSON.stringify(p)))});

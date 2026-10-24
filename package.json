@@ -1,0 +1,10 @@
+{
+  "name": "service-call-job-mapper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests.mjs"
+  },
+  "description": "Turn synthetic service-call events into structured mock CRM job payloads for review.",
+  "license": "MIT"
+}
